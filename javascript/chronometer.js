@@ -6,7 +6,10 @@ class Chronometer {
 
   start(callback) {
     // should increment by 1 the currentTime property on every 1 second interval
-    this.intervalId = setInterval(() => this.currentTime++, 1000)
+    this.intervalId = setInterval(() => {
+      this.currentTime++
+      if (callback) callback()
+    }, 1000)
   }
 
   getMinutes() {
